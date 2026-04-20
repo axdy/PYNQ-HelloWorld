@@ -2,7 +2,11 @@
 
 # SPDX-License-Identifier: BSD-3-Clause
 
-set vitis_lib_include [lindex $argv 2]
+if { [llength $argv] < 1 } {
+  error "Expected Vitis Vision include path as first tclarg"
+}
+
+set vitis_lib_include [lindex $argv 0]
 
 open_project resize
 set_top resize_accel
